@@ -1,13 +1,24 @@
 package com.veena;
-
+/*
+Author - Veena R
+Date - 12/28/2019
+Name - Main.java
+Robot programming is implemented as console application . Main.java is the main class/start of the application.
+This class accepts the width and depth variable values from user and assign them to the Room class variables wide and deep respectively.
+User will be prompted to enter the initial position of the robot in the room and direction it is facing.
+ */
 import java.util.Scanner;
 
 public class Main {
-
-    private char direction;
-
+/*
+Initial position of the robot are accepted as pos1 & pos2 and direction is accepted dir variable.And these variables are passed to
+setPosition(pos1,pos2,dir) to set the initial position of the robot.
+Instruction shown to user to give navigation commands to robot
+Through Room class object robot can walk in around room using walkAroundRoom() method
+After completing all the navigation commands robot can report which field it is in and direction it is facing through displayCurrentPos()
+function of Room class
+ */
     public static void main(String[] args) {
-	// write your code here
         Scanner scan = new Scanner(System.in);
         int pos1,pos2,wide,deep;
         char dir;
@@ -18,7 +29,6 @@ public class Main {
         wide = scan.nextInt();
         System.out.println("Enter the depth");
         deep = scan.nextInt();
-        System.out.println("Room size is : "+wide+"x"+deep);
         Room room = new Room(wide,deep);
         System.out.println("Enter the position of the Robot");
         System.out.println("Enter the first coordinate");
@@ -56,6 +66,6 @@ public class Main {
         navCommand = scan.next();
         room.setNavCommand(navCommand);
         room.walkAroundRoom();
-        System.out.println(room.displayCurrentPos());
+        System.out.println("Report: "+room.displayCurrentPos());
     }
 }
